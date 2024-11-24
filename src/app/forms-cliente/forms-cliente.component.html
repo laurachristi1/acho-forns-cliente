@@ -1,0 +1,161 @@
+<div class="container">
+    <!-- Botão de Voltar -->
+    <button class="botao-voltar"><i class="fas fa-arrow-left"></i></button>
+    <span class="titulo-inscricao">Formulário de inscrição</span>
+  
+    <!-- Formulário -->
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+      <!-- Dados do Aluno -->
+      <h2 class="subtitulo">Dados do aluno</h2>
+      <div class="linha">
+        <label for="nomeAluno">Nome completo</label>
+        <input id="nomeAluno" type="text" formControlName="nomeAluno" class="input-grande" />
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="nascimentoAluno">Data de nascimento</label>
+          <input id="nascimentoAluno" type="date" formControlName="nascimentoAluno" />
+        </div>
+        <div class="campo">
+          <label for="rgAluno">RG</label>
+          <input id="rgAluno" type="text" formControlName="rgAluno" />
+        </div>
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="cepAluno">CEP</label>
+          <input id="cepAluno" type="text" formControlName="cepAluno" />
+        </div>
+        <div class="campo">
+          <label for="estadoAluno">Estado</label>
+          <input id="estadoAluno" type="text" formControlName="estadoAluno" />
+        </div>
+        <div class="campo">
+          <label for="cidadeAluno">Cidade</label>
+          <input id="cidadeAluno" type="text" formControlName="cidadeAluno" />
+        </div>
+        <div class="campo">
+          <label for="bairroAluno">Bairro</label>
+          <input id="bairroAluno" type="text" formControlName="bairroAluno" />
+        </div>
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="ruaAluno">Rua</label>
+          <input id="ruaAluno" type="text" formControlName="ruaAluno" />
+        </div>
+        <div class="campo">
+          <label for="numeroAluno">Número</label>
+          <input id="numeroAluno" type="text" formControlName="numeroAluno" class="input-numero" />
+        </div>
+      </div>
+      <div class="linha">
+        <label for="complementoAluno">Complemento</label>
+        <input id="complementoAluno" type="text" formControlName="complementoAluno" class="input-grande" />
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="emailAluno">Email</label>
+          <input id="emailAluno" type="email" formControlName="emailAluno" />
+        </div>
+        <div class="campo">
+          <label for="telefoneAluno">Número de telefone</label>
+          <input id="telefoneAluno" type="text" formControlName="telefoneAluno" class="input-numero-tel" />
+        </div>
+      </div>
+  
+      <!-- Dados do Responsável -->
+      <h2 class="subtitulo">Dados do responsável</h2>
+      <div class="linha">
+        <label for="nomeResponsavel">Nome completo</label>
+        <input id="nomeResponsavel" type="text" formControlName="nomeResponsavel" class="input-grande" />
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="nascimentoResponsavel">Data de nascimento</label>
+          <input id="nascimentoResponsavel" type="date" formControlName="nascimentoResponsavel" />
+        </div>
+        <div class="campo">
+          <label for="rgResponsavel">RG</label>
+          <input id="rgResponsavel" type="text" formControlName="rgResponsavel" />
+        </div>
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="cepResponsavel">CEP</label>
+          <input id="cepResponsavel" type="text" formControlName="cepResponsavel" />
+        </div>
+        <div class="campo">
+          <label for="estadoResponsavel">Estado</label>
+          <input id="estadoResponsavel" type="text" formControlName="estadoResponsavel" />
+        </div>
+        <div class="campo">
+          <label for="cidadeResponsavel">Cidade</label>
+          <input id="cidadeResponsavel" type="text" formControlName="cidadeResponsavel" />
+        </div>
+        <div class="campo">
+          <label for="bairroResponsavel">Bairro</label>
+          <input id="bairroResponsavel" type="text" formControlName="bairroResponsavel" />
+        </div>
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="ruaResponsavel">Rua</label>
+          <input id="ruaResponsavel" type="text" formControlName="ruaResponsavel" />
+        </div>
+        <div class="campo">
+          <label for="numeroResponsavel">Número</label>
+          <input id="numeroResponsavel" type="text" formControlName="numeroResponsavel" class="input-numero" />
+        </div>
+      </div>
+      <div class="linha">
+        <label for="complementoResponsavel">Complemento</label>
+        <input id="complementoResponsavel" type="text" formControlName="complementoResponsavel" class="input-grande" />
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="emailResponsavel">Email</label>
+          <input id="emailResponsavel" type="email" formControlName="emailResponsavel" />
+        </div>
+        <div class="campo">
+          <label for="telefoneResponsavel">Número de telefone</label>
+          <input id="telefoneResponsavel" type="text" formControlName="telefoneResponsavel" class="input-numero-tel" />
+        </div>
+      </div>
+  
+      <!-- Sobre o Curso -->
+      <h3 class="subtitulo">Sobre o curso</h3>
+      <div class="linha">
+        <div class="campo">
+          <label for="curso">Curso</label>
+          <select id="curso" formControlName="curso">
+            <option value="">Selecione um curso</option>
+            <option *ngFor="let curso of listaCursos" [value]="curso">{{ curso }}</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="turno">Turno</label>
+          <input id="turno" type="text" formControlName="turno" />
+        </div>
+      </div>
+  
+     <!-- Botão de Envio -->
+      <button class="botao-enviar" type="submit" [disabled]="envioEmAndamento">Enviar</button>
+  
+    <!-- Pop-up de Sucesso -->
+    <div *ngIf="formularioEnviado" class="modal-overlay" (click)="fecharModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <div class="alert alert-success">
+            <strong>Sucesso!</strong> Formulário enviado com sucesso!
+          </div>
+          <button class="btn-fechar" (click)="fecharModal()">Fechar</button>
+        </div>
+      </div>
+  
+      <!-- Simulação de Carregamento -->
+      <div *ngIf="envioEmAndamento" class="alert alert-info">
+        Enviando... Por favor, aguarde.
+      </div>
+    </form>
+  </div>
+  
